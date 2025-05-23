@@ -75,36 +75,36 @@ const About = () => {
     };
   }, []);
 
-  const servicesData = [
+  const approachData = [
     {
-      name: "Risk management and business continuity consulting",
-      description: "Comprehensive assessment of operational and strategic risks",
-      keywords: ["risk consulting", "business continuity", "risk management"]
+      name: "Customized approach",
+      description: "Solutions tailored to each client's specific needs",
+      keywords: ["personalization", "custom solutions", "client-focused approach"]
     },
     {
-      name: "Penetration Testing and adversary simulations (Red Team)",
-      description: "Offensive security testing to identify vulnerabilities",
-      keywords: ["pentesting", "red team", "offensive security"]
+      name: "Cutting-edge technology",
+      description: "We implement market-leading tools for maximum effectiveness",
+      keywords: ["technological innovation", "advanced tools", "state-of-the-art technology"]
     },
     {
-      name: "SIEM platforms for security event monitoring",
-      description: "Centralized solution for real-time threat detection",
-      keywords: ["SIEM", "security monitoring", "threat detection"]
+      name: "Multidisciplinary team",
+      description: "Experts in security, fintech and risk management working together",
+      keywords: ["expert team", "multidisciplinary", "integrated knowledge"]
     },
     {
-      name: "Identity & Access Management (IAM) for critical data",
-      description: "Access control and privileged identity management",
-      keywords: ["IAM", "identity management", "access control"]
+      name: "Proven methodology",
+      description: "Processes validated with over 50 clients in Latin America",
+      keywords: ["methodology", "validated processes", "proven experience"]
     },
     {
-      name: "Software development and customized solutions",
-      description: "Tailored technological solutions for your business",
-      keywords: ["software development", "custom solutions", "tailored technology"]
+      name: "Continuous support",
+      description: "Support throughout all implementation and operation stages",
+      keywords: ["technical support", "ongoing assistance", "continuous service"]
     },
     {
-      name: "Leading products like Core Impact and Cobalt Strike",
-      description: "Professional tools for penetration testing",
-      keywords: ["Core Impact", "Cobalt Strike", "security tools"]
+      name: "Strategic vision",
+      description: "Solutions aligned with each organization's business objectives",
+      keywords: ["strategy", "business alignment", "comprehensive vision"]
     }
   ];
 
@@ -168,7 +168,7 @@ const About = () => {
           </div>
         </div>
 
-        {/* Services Section */}
+        {/* Approach Section */}
         <div className="about-row reverse-row" ref={addToRefs}>
           <div className="about-image-wrapper">
             <div className="image-tech-border image-right-border">
@@ -189,10 +189,10 @@ const About = () => {
           </div>
           <div className="about-content">
             <h2 className="content-title" ref={addToRefs}>
-              <span className="title-decoration">Our services</span>
+              <span className="title-decoration">Our approach</span>
             </h2>
             <ul className="services-list">
-              {servicesData.map((service, index) => (
+              {approachData.map((item, index) => (
                 <li 
                   className="service-item" 
                   key={index}
@@ -201,10 +201,10 @@ const About = () => {
                   itemType="https://schema.org/Service"
                 >
                   <span className="service-icon">⟫</span>
-                  <span itemProp="name">{service.name}</span>
-                  <meta itemProp="description" content={service.description} />
+                  <span itemProp="name">{item.name}</span>
+                  <meta itemProp="description" content={item.description} />
                   <meta itemProp="provider" content="YAFO Consulting"/>
-                  {service.keywords.map((keyword, i) => (
+                  {item.keywords.map((keyword, i) => (
                     <meta key={i} itemProp="keywords" content={keyword} />
                   ))}
                 </li>

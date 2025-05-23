@@ -2,6 +2,7 @@ import About from "./components/about/About";
 import Footer from "./components/footer/Footer"
 import Header from "./components/header/Header"
 import Intro from "./components/intro/Intro"
+import Solutions from "./components/modules/Solutions";
 import AnimatedSection from './components/section/AnimatedSection';
 import Seo from "./components/seo/Seo"
 
@@ -24,6 +25,10 @@ function App() {
 
         <AnimatedSection id="about us" aria-label="About Us">
           <About />
+        </AnimatedSection>
+
+        <AnimatedSection id="solutions" aria-label="technological solutions">
+          <Solutions />
         </AnimatedSection>
       
       <Footer />
