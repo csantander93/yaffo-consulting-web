@@ -1,3 +1,4 @@
+import About from "./components/about/About";
 import Footer from "./components/footer/Footer"
 import Header from "./components/header/Header"
 import Intro from "./components/intro/Intro"
@@ -17,8 +18,12 @@ function App() {
       
       <Header />
 
-        <AnimatedSection id="inicio" aria-label="Sección de inicio">
+        <AnimatedSection id="home" aria-label="home section">
           <Intro />
+        </AnimatedSection>
+
+        <AnimatedSection id="about us" aria-label="About Us">
+          <About />
         </AnimatedSection>
       
       <Footer />
