@@ -1,0 +1,757 @@
+:root {
+  /* Paleta de colores */
+  --intro-main-bg: #050f21;
+  --intro-primary-blue: #007BFF;
+  --intro-dark-blue: #E6F0FF;
+  --intro-button-bg: #E6F0FF;
+  --intro-innovative-blue: #00AEEf;
+  --intro-secondary-text: #B0C4DE;
+  --intro-light-border: #D1D5DB;
+  
+  /* Efectos */
+  --intro-cyber-glow: 0 0 9px rgba(0, 123, 255, 0.7);
+  --intro-cyber-glow-intense: 0 0 18px rgba(0, 174, 239, 0.9);
+  --intro-metal-gradient: linear-gradient(135deg, var(--intro-primary-blue) 0%, var(--intro-innovative-blue) 50%, var(--intro-primary-blue) 100%);
+}
+
+/* Estructura base */
+.intro-hero {
+  background: var(--intro-main-bg);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.9s ease-out;
+  color: var(--intro-dark-blue);
+}
+
+.intro-hero.loaded {
+  opacity: 1;
+}
+
+/* Fondo de partículas (solo desktop) */
+.particle-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.72;
+}
+
+/* Fondo con ondas */
+.intro-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, rgba(0, 174, 239, 0.09), transparent 70%);
+  animation: waveMove 13.5s infinite ease-in-out;
+  z-index: 0;
+}
+
+@keyframes waveMove {
+  0% { transform: scale(0.9); opacity: 0.27; }
+  50% { transform: scale(1.08); opacity: 0.45; }
+  100% { transform: scale(0.9); opacity: 0.27; }
+}
+
+/* Grid tecnológico */
+.cyber-grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(rgba(0, 123, 255, 0.18) 0.9px, transparent 0.9px),
+    linear-gradient(90deg, rgba(0, 123, 255, 0.18) 0.9px, transparent 0.9px);
+  background-size: 36px 36px;
+  z-index: 1;
+  pointer-events: none;
+  animation: gridMove 54s linear infinite;
+  opacity: 0.45;
+}
+
+@keyframes gridMove {
+  from { background-position: 0 0; }
+  to { background-position: 36px 36px; }
+}
+
+/* Contenedor principal */
+.hero-container {
+  max-width: 1260px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 4.8rem 1.35rem;
+  position: relative;
+  z-index: 3;
+  backdrop-filter: blur(1.8px);
+}
+
+.hero-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 1.8rem;
+}
+
+/* Sección de texto */
+.hero-text-content {
+  flex: 0 0 54%;
+  max-width: 54%;
+}
+
+.hero-titles {
+  text-align: left;
+  margin: 0;
+  padding: 1.8rem 0;
+}
+
+.yafo-text {
+  font-size: 5.85rem;
+  font-weight: 900;
+  line-height: 0.9;
+  color: var(--intro-primary-blue);
+  text-shadow: 0 0 9px rgba(0, 123, 255, 0.27);
+  margin-bottom: 0.45rem;
+  animation: fadeInUp 0.72s 0.18s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.consulting-sub {
+  position: relative;
+  font-size: 1.98rem;
+  font-weight: 700;
+  color: var(--intro-primary-blue);
+  letter-spacing: 0.315em;
+  text-indent: 0.315em;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 0 0.45rem;
+  animation: fadeInUp 0.72s 0.36s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.cyber-line {
+  position: absolute;
+  bottom: -9px;
+  left: 0;
+  width: 72%;
+  height: 2.7px;
+  background: var(--intro-metal-gradient);
+  box-shadow: var(--intro-cyber-glow);
+  animation: lineExpand 0.72s 0.54s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Tagline */
+.hero-tagline {
+  font-size: 2.025rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 1.8rem 0 0.45rem;
+  color: var(--intro-dark-blue);
+  animation: fadeIn 0.9s 0.54s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.text-highlight {
+  position: relative;
+  display: inline-block;
+  color: var(--intro-innovative-blue);
+  text-shadow: var(--intro-cyber-glow-intense);
+}
+
+.text-highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 0.09em;
+  left: 0;
+  width: 100%;
+  height: 0.315em;
+  background: rgba(0, 174, 239, 0.27);
+  z-index: -1;
+  border-radius: 1.8px;
+  transform-origin: left;
+  animation: highlightGrow 0.9s 1.62s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Subtítulo */
+.hero-subtitle {
+  font-size: 1.35rem;
+  color: var(--intro-secondary-text);
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 90%;
+  margin: 0 0 1.35rem;
+  animation: fadeIn 0.9s 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Botón CTA */
+.cyber-button {
+  position: relative;
+  padding: 0.9rem 1.8rem;
+  margin-top: 1.8rem;
+  background: var(--intro-button-bg);
+  color: var(--intro-primary-blue);
+  border: 1.8px solid var(--intro-primary-blue);
+  font-size: 0.99rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  cursor: pointer;
+  transition: all 0.27s ease;
+  overflow: hidden;
+  animation: fadeIn 0.9s 1.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.cyber-button:hover {
+  background: rgba(0, 123, 255, 0.09);
+  box-shadow: var(--intro-cyber-glow-intense);
+  transform: translateY(-1.8px);
+  color: var(--intro-dark-blue);
+  border-color: var(--intro-innovative-blue);
+}
+
+.cyber-button-text {
+  position: relative;
+  z-index: 2;
+}
+
+.cyber-button-glitch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--intro-innovative-blue);
+  opacity: 0;
+  z-index: 1;
+  animation: glitch-flash 2.7s infinite;
+}
+
+@keyframes glitch-flash {
+  0%, 100% { opacity: 0; }
+  25%, 75% { opacity: 0; }
+  50% { opacity: 0.18; }
+}
+
+/* ---------------------------------- */
+/* ESTILOS PARA VERSIÓN MÓVIL SIMPLIFICADA */
+/* ---------------------------------- */
+
+.mobile-icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.mobile-icon-image {
+  width: 180px;
+  height: 180px;
+  filter: 
+    drop-shadow(0 0 10px rgba(0, 174, 239, 0.7))
+    brightness(1.4)
+    contrast(1.2);
+  animation: mobileIconPulse 3s ease-in-out infinite;
+}
+
+.mobile-icon-label {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  background: rgba(0, 174, 239, 0.15);
+  border-radius: 15px;
+  box-shadow: 
+    0 0 10px rgba(0, 174, 239, 0.5),
+    inset 0 0 5px rgba(0, 174, 239, 0.3);
+  text-shadow: 
+    0 0 8px var(--intro-innovative-blue);
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+@keyframes mobileIconPulse {
+  0%, 100% { transform: scale(0.95); opacity: 0.9; }
+  50% { transform: scale(1); opacity: 1; }
+}
+
+/* ---------------------------------- */
+/* HOLOGRAMA COMPLETO (SOLO DESKTOP) */
+/* ---------------------------------- */
+
+.hologram-container {
+  flex: 0 0 31.5%;
+  max-width: 31.5%;
+  position: relative;
+  height: 495px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1080px;
+  overflow: visible;
+}
+
+.hologram-display {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Efecto de proyector (linterna) */
+.hologram-projector {
+  position: absolute;
+  bottom: -135px;
+  width: 252px;
+  height: 225px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 174, 239, 0) 0%,
+    rgba(0, 174, 239, 0.81) 20%,
+    rgba(0, 174, 239, 0.45) 60%,
+    rgba(0, 174, 239, 0) 100%
+  );
+  clip-path: polygon(0% 100%, 15% 0%, 85% 0%, 100% 100%);
+  transform: perspective(270px) rotateX(65deg);
+  z-index: 1;
+  filter: blur(22.5px);
+  animation: projectorPulse 2.7s ease-in-out infinite;
+}
+
+/* Base luminosa con efecto de luz ascendente */
+.hologram-base {
+  position: absolute;
+  bottom: 0;
+  width: 120%;
+  height: 108px;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 174, 239, 0.81) 0%,
+    rgba(0, 174, 239, 0.36) 50%,
+    transparent 80%
+  );
+  filter: blur(27px);
+  opacity: 0.72;
+  border-radius: 50%;
+  z-index: 1;
+  animation: basePulse 2.25s ease-in-out infinite alternate;
+}
+
+/* Contenedor de iconos holográficos */
+.hologram-icon-container {
+  position: relative;
+  width: 288px;
+  height: 288px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Icono holográfico */
+.hologram-icon {
+  position: absolute;
+  width: 288px;
+  height: 288px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  animation: floatHologram 6.3s ease-in-out infinite;
+  z-index: 4;
+  filter: drop-shadow(0 0 27px rgba(0, 174, 239, 0.63));
+  opacity: 0;
+  transition: opacity 1.35s ease-in-out;
+}
+
+.hologram-icon.fade {
+  opacity: 1;
+}
+
+.hologram-image {
+  width: 70%;
+  height: auto;
+  z-index: 5;
+  filter: 
+    drop-shadow(0 0 22.5px rgba(0, 174, 239, 0.81))
+    brightness(1.6)
+    contrast(1.3);
+  animation: floatIcon 3.6s ease-in-out infinite;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+}
+
+/* Grid holográfico */
+.hologram-grid {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at center, transparent 50%, rgba(0, 174, 239, 0.225) 100%),
+    linear-gradient(0deg, transparent 47%, rgba(0, 174, 239, 0.54) 49%, rgba(0, 174, 239, 0.54) 51%, transparent 53%),
+    linear-gradient(90deg, transparent 47%, rgba(0, 174, 239, 0.54) 49%, rgba(0, 174, 239, 0.54) 51%, transparent 53%);
+  background-size: 18px 18px;
+  border-radius: 50%;
+  box-shadow: 
+    0 0 54px rgba(0, 174, 239, 0.81),
+    inset 0 0 90px rgba(0, 174, 239, 0.63);
+  animation: 
+    rotateGrid 13.5s linear infinite,
+    pulseGrid 2.25s ease-in-out infinite alternate;
+  z-index: 3;
+}
+
+/* Etiqueta mejorada */
+.hologram-label {
+  margin-top: 3.15rem;
+  font-size: 1.44rem;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  padding: 0.45rem 1.35rem;
+  background: rgba(0, 174, 239, 0.18);
+  border-radius: 18px;
+  box-shadow: 
+    0 0 18px rgba(0, 174, 239, 0.81),
+    inset 0 0 9px rgba(0, 174, 239, 0.45);
+  text-shadow: 
+    0 0 18px var(--intro-innovative-blue),
+    0 0 36px rgba(0, 174, 239, 0.81);
+  opacity: 0;
+  animation: fadeInGlow 0.9s 0.9s ease-in-out forwards;
+  z-index: 5;
+  letter-spacing: 0.9px;
+  transition: opacity 1.35s ease-in-out;
+}
+
+.hologram-label.fade {
+  opacity: 1;
+}
+
+/* ANIMACIONES MEJORADAS */
+@keyframes projectorPulse {
+  0%, 100% { opacity: 0.63; height: 198px; bottom: -126px; }
+  50% { opacity: 0.855; height: 252px; bottom: -162px; }
+}
+
+@keyframes basePulse {
+  0% { opacity: 0.63; transform: scale(0.855); }
+  100% { opacity: 0.855; transform: scale(0.99); }
+}
+
+@keyframes fogPulse {
+  0% { opacity: 0.45; transform: scale(0.81); }
+  100% { opacity: 0.72; transform: scale(1.035); }
+}
+
+@keyframes floatHologram {
+  0%, 100% { transform: translateY(0) rotateX(0deg) rotateY(0deg) scale(0.9); }
+  25% { transform: translateY(-27px) rotateX(13.5deg) rotateY(13.5deg) scale(0.972); }
+  50% { transform: translateY(0) rotateX(0deg) rotateY(27deg) scale(0.9); }
+  75% { transform: translateY(-22.5px) rotateX(-13.5deg) rotateY(13.5deg) scale(0.945); }
+}
+
+@keyframes floatIcon {
+  0%, 100% { transform: translateZ(0) scale(0.9) rotateY(0deg); }
+  25% { transform: translateZ(36px) scale(0.99) rotateY(13.5deg); }
+  50% { transform: translateZ(0) scale(0.9) rotateY(27deg); }
+  75% { transform: translateZ(27px) scale(0.963) rotateY(13.5deg); }
+}
+
+@keyframes floatParticle {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  10% { opacity: 0.72; }
+  90% { opacity: 0.72; }
+  100% { transform: translateY(-225px) translateX(36px); opacity: 0; }
+}
+
+@keyframes rotateGrid {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulseGrid {
+  0% { 
+    box-shadow: 
+      0 0 45px rgba(0, 174, 239, 0.63),
+      inset 0 0 72px rgba(0, 174, 239, 0.54);
+  }
+  100% { 
+    box-shadow: 
+      0 0 72px rgba(0, 174, 239, 0.9),
+      inset 0 0 108px rgba(0, 174, 239, 0.81);
+  }
+}
+
+@keyframes fadeInGlow {
+  0% { opacity: 0; transform: scale(0.81); }
+  100% { opacity: 1; transform: scale(0.9); }
+}
+
+/* Indicador de scroll */
+.scrolling-indicator {
+  position: absolute;
+  bottom: 30px;
+  transform: translateX(-50%);
+  z-index: 3;
+  animation: fadeIn 0.9s 1.8s both;
+}
+
+.scroll-text {
+  display: block;
+  color: var(--intro-secondary-text);
+  font-size: 0.72rem;
+  margin-bottom: 4.5px;
+  letter-spacing: 1.8px;
+}
+
+.scroll-line {
+  height: 36px;
+  width: 0.9px;
+  margin: 0 auto;
+  background: var(--intro-innovative-blue);
+  animation: scrollLine 1.8s infinite;
+}
+
+@keyframes scrollLine {
+  0% { transform: translateY(0); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(18px); opacity: 0; }
+}
+
+/* Animaciones base */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(27px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes highlightGrow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes lineExpand {
+  from { width: 0; opacity: 0; }
+  to { width: 72%; opacity: 1; }
+}
+
+/* ---------------------------------- */
+/* MEDIA QUERIES PARA RESPONSIVE */
+/* ---------------------------------- */
+
+@media (max-width: 1200px) {
+  .yafo-text {
+    font-size: 4.95rem;
+  }
+  .consulting-sub {
+    font-size: 1.8rem;
+  }
+  .hologram-icon {
+    width: 252px;
+    height: 252px;
+  }
+  .hologram-projector {
+    width: 216px;
+    height: 189px;
+    bottom: -117px;
+  }
+  .hologram-label {
+    margin-top: 2.5rem;
+    font-size: 1.35rem;
+  }
+  .scrolling-indicator {
+    bottom: 50px;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .hero-text-content,
+  .hologram-container {
+    flex: 0 0 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .hero-titles {
+    text-align: center;
+    padding: 1.2rem 0;
+  }
+  
+  .tagline-words {
+    justify-content: center;
+  }
+  
+  .consulting-sub {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .cyber-line {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+  }
+  
+  .hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 95%;
+  }
+  
+  .hologram-container {
+    height: 340px;
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+  }
+  
+  .hologram-icon {
+    width: 220px;
+    height: 220px;
+  }
+  
+  .hologram-projector {
+    width: 190px;
+    height: 155px;
+    bottom: -100px;
+    filter: blur(20px);
+  }
+  
+  .hologram-label {
+    margin-top: 2rem;
+    font-size: 1.3rem;
+    padding: 0.4rem 1.2rem;
+    letter-spacing: 0.8px;
+  }
+  
+  .scrolling-indicator {
+    bottom: 70px;
+  }
+  
+  .scroll-text {
+    font-size: 0.7rem;
+    margin-bottom: 4px;
+  }
+  
+  .scroll-line {
+    height: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Ocultamos el canvas de partículas en móvil */
+  .particle-background {
+    display: none;
+  }
+  
+  /* Ajustamos el grid overlay para móvil */
+  .cyber-grid-overlay {
+    opacity: 0.3;
+    background-size: 25px 25px;
+  }
+  
+  /* Ajustamos el efecto de onda para móvil */
+  .intro-hero::before {
+    animation: waveMove 15s infinite ease-in-out;
+  }
+  
+  .yafo-text {
+    font-size: 3.8rem;
+  }
+  .consulting-sub {
+    font-size: 1.3rem;
+  }
+  .hero-tagline {
+    font-size: 1.5rem;
+  }
+  .hero-subtitle {
+    font-size: 1.1rem;
+    max-width: 100%;
+  }
+  
+  /* Estilos específicos para el contenedor móvil */
+  .hologram-container {
+    height: 280px;
+    margin-top: 1.5rem;
+    margin-bottom: 6rem;
+  }
+  
+  .mobile-icon-label {
+    font-size: 1.2rem;
+    margin-top: 1.8rem;
+  }
+  
+  .scrolling-indicator {
+    bottom: 80px;
+  }
+}
+
+@media (max-width: 576px) {
+  .yafo-text {
+    font-size: 2.8rem;
+  }
+  .consulting-sub {
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+  }
+  .hero-tagline {
+    font-size: 1.2rem;
+  }
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+  .cyber-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+  }
+  
+  /* Ajustamos el icono móvil */
+  .mobile-icon-image {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .mobile-icon-label {
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    padding: 0.3rem 1rem;
+  }
+  
+  .hologram-container {
+    height: 250px;
+    margin-bottom: 7rem;
+  }
+  
+  .scrolling-indicator {
+    bottom: 90px;
+  }
+  .scroll-text {
+    font-size: 0.65rem;
+  }
+  .scroll-line {
+    height: 25px;
+  }
+}

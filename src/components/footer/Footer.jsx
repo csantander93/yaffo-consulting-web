@@ -1,0 +1,37 @@
+import React from 'react';
+import './Footer.css';
+import { FaLinkedin } from 'react-icons/fa';
+import logoYafo from '../../assets/logo-yaffo.webp';
+
+const Footer = () => {
+  return (
+    <footer className="footer-container" itemScope itemType="https://schema.org/WPFooter">
+      <div className="footer-content">
+        <div className="footer-logo-section" itemScope itemType="https://schema.org/Organization">
+          <a 
+            href="https://yafoconsultora.com/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            aria-label="Visitar sitio de Yafo Consultora"
+          >
+            <img 
+              src={logoYafo} 
+              alt="Logo Yafo Consultora" 
+              className="info-logo" 
+              itemProp="logo"
+              loading="lazy"
+            />
+          </a>
+        </div>
+      </div>
+
+      <div className="footer-bottom">
+        <p itemProp="copyrightYear">
+          &copy; {new Date().getFullYear()} <span itemProp="copyrightHolder">YAFO CONSULTORA S.R.L</span>. Todos los derechos reservados.
+        </p>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
