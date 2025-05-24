@@ -72,7 +72,7 @@ const Seo = ({
             "email": "contact@yaffoconsulting.com"
           },
           "sameAs": [
-            "https://linkedin.com/company/yaffo-consulting",
+            "https://www.linkedin.com/company/yafo-consultora-srl/posts/?feedView=all",
             "https://twitter.com/YAFOConsulting"
           ]
         })}
