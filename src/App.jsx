@@ -1,4 +1,6 @@
 import About from "./components/about/About";
+import Clients from "./components/clients/Clients";
+import ContactForm from "./components/contact/ContactForm";
 import Footer from "./components/footer/Footer"
 import Header from "./components/header/Header"
 import Intro from "./components/intro/Intro"
@@ -28,12 +30,20 @@ function App() {
           <About />
         </AnimatedSection>
 
-        <AnimatedSection id="services" aria-label="">
+        <AnimatedSection id="services" aria-label="our services">
           <Services />
         </AnimatedSection>
 
         <AnimatedSection id="solutions" aria-label="technological solutions">
           <Solutions />
+        </AnimatedSection>
+
+        <AnimatedSection id="clients" aria-label="Success stories">
+          <Clients />
+        </AnimatedSection>
+
+        <AnimatedSection id="contact" aria-label="Contact">
+          <ContactForm />
         </AnimatedSection>
       
       <Footer />
