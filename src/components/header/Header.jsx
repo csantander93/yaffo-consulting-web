@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import logo from '../../assets/yaffo-logo-invert.webp';
+import logo from '../../assets/logo-yaffo.webp';
 import './Header.css';
 
 const Header = () => {

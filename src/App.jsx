@@ -13,7 +13,7 @@ import Seo from "./components/seo/Seo"
 
 function App() {
 
-    useEffect(() => {
+  useEffect(() => {
     // Deshabilitar el scroll restoration del navegador
     if ('scrollRestoration' in window.history) {
       window.history.scrollRestoration = 'manual';
