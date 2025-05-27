@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './ContactForm.css';
+import { sendContactEmail } from '../../services/emailServices';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +13,7 @@ const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
     setIsLoaded(true);
@@ -25,27 +27,40 @@ const ContactForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    setTimeout(() => {
+    setErrorMessage('');
+  
+    try {
+      const result = await sendContactEmail(formData);
+  
+      if (result && result.status === 1) {
+        setSubmitSuccess(true);
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
+      } else {
+        console.error('Error submitting form:', result?.message || 'Unknown error');
+        setErrorMessage('There was an error submitting your message. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setErrorMessage('There was a server error. Please try again later.');
+    } finally {
       setIsSubmitting(false);
-      setSubmitSuccess(true);
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      });
-
-      setTimeout(() => setSubmitSuccess(false), 5000);
-    }, 1500);
+      
+      if (submitSuccess) {
+        setTimeout(() => setSubmitSuccess(false), 5000);
+      }
+    }
   };
 
   return (
     <section id='contact' className={`contact-section ${isLoaded ? 'loaded' : ''}`}>
-      {/* Background elements similar to Services */}
       <div className="contact-background">
         <div className="contact-gradient"></div>
         <div className="contact-particle contact-particle-1"></div>
@@ -73,6 +88,11 @@ const ContactForm = () => {
               </div>
             ) : (
               <form className="contact-form" onSubmit={handleSubmit}>
+                {errorMessage && (
+                  <div className="error-message">
+                    <p>{errorMessage}</p>
+                  </div>
+                )}
                 <div className="form-row">
                   <div className="floating-input">
                     <input 
