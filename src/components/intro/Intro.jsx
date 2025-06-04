@@ -119,12 +119,47 @@ const Intro = () => {
     };
   }, [initParticles, holograms.length]);
 
-  const scrollToServices = () => {
-    const servicesSection = document.getElementById('services');
-    if (servicesSection) {
-      servicesSection.scrollIntoView({ behavior: 'smooth' });
+const scrollToSection = (sectionId) => {
+  const targetSection = document.getElementById(sectionId);
+  if (!targetSection) return; // Salir si no existe la sección
+
+  const header = document.querySelector('header');
+  const headerHeight = header ? header.offsetHeight : 0;
+  const targetPosition = targetSection.offsetTop - headerHeight;
+  const startPosition = window.pageYOffset;
+  const distance = targetPosition - startPosition;
+  const duration = Math.min(2000, Math.max(800, distance * 1.2)); // Duración dinámica
+  
+  let startTime = null;
+
+  const animateScroll = (timestamp) => {
+    if (!startTime) startTime = timestamp;
+    const progress = timestamp - startTime;
+    const percentage = Math.min(progress / duration, 1);
+    const easedPercentage = easeInOutCubic(percentage);
+    
+    window.scrollTo(0, startPosition + (distance * easedPercentage));
+    
+    if (progress < duration) {
+      requestAnimationFrame(animateScroll);
     }
   };
+
+  const easeInOutCubic = (t) => {
+    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  };
+
+  requestAnimationFrame(animateScroll);
+};
+
+// Funciones específicas que reutilizan la función genérica
+const scrollToServices = () => {
+  scrollToSection('services');
+};
+
+const scrollToSolutions = () => {
+  scrollToSection('solutions');
+};
 
   return (
     <section id="home" className={`intro-hero ${isLoaded ? 'loaded' : ''}`}>
@@ -234,9 +269,17 @@ const Intro = () => {
         </div>
       </div>
 
-      <div className="scrolling-indicator" aria-label="Scroll down">
-        <span className="scroll-text">Discover More</span>
-        <div className="scroll-line"></div>
+      <div 
+        className="scroll-down-arrow" 
+        aria-label="Desplázate hacia abajo"
+        onClick={scrollToSolutions}
+      >
+        <span className="scroll-hint">Scroll</span>
+        <div className="arrow-container">
+          <svg className="arrow" viewBox="0 0 24 24" width="24" height="24">
+            <path d="M7 10l5 5 5-5z" fill="currentColor" />
+          </svg>
+        </div>
       </div>
     </section>
   );

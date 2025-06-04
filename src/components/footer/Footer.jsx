@@ -7,14 +7,14 @@ const Footer = () => {
       <div className="footer-content">
         <div className="footer-logo-section" itemScope itemType="https://schema.org/Organization">
           <a 
-            href="https://yafoconsultora.com/" 
+            href="/" 
             target="_blank" 
             rel="noopener noreferrer" 
-            aria-label="Visitar sitio de Yafo Consultora"
+            aria-label="Visit Yafo Consulting's website"
           >
             <img 
               src={logoYafo} 
-              alt="Logo Yafo Consultora" 
+              alt="Icon Yaffo Consulting" 
               className="info-logo" 
               itemProp="logo"
               loading="lazy"
@@ -25,7 +25,7 @@ const Footer = () => {
 
       <div className="footer-bottom">
         <p itemProp="copyrightYear">
-          &copy; {new Date().getFullYear()} <span itemProp="copyrightHolder">YAFO CONSULTORA S.R.L</span>. Todos los derechos reservados.
+          &copy; {new Date().getFullYear()} <span itemProp="copyrightHolder">YAFFO CONSULTING S.R.L</span>. All rights reserved.
         </p>
       </div>
     </footer>
