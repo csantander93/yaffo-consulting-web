@@ -8,7 +8,6 @@ const Footer = () => {
         <div className="footer-logo-section" itemScope itemType="https://schema.org/Organization">
           <a 
             href="#" 
-            target="_blank" 
             rel="noopener noreferrer" 
             aria-label="Visit Yafo Consulting's website"
           >
