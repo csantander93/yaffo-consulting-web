@@ -442,6 +442,11 @@
   .reverse-row .about-image-wrapper {
     margin-top: 1.5rem; /* Smaller offset for mobile */
   }
+
+  .about-approach .content-title,
+  .services-list {
+    display: none !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -464,5 +469,47 @@
   .service-item {
     padding: 0.8rem 1rem;
     font-size: 0.9rem;
+  }
+    .content-title:not(.about-approach .content-title) {
+    font-size: 1.275rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .about-title {
+    font-size: 1.5rem;
+  }
+
+  .content-title:not(.about-approach .content-title) {
+    font-size: 1.225rem;
+  }
+
+  .mobile-alternative {
+    font-size: 0.825rem;
+    line-height: 1.45;
+  }
+
+  .about-row {
+    gap: 1.75rem;
+    margin-bottom: 2.5rem;
+  }
+}
+
+/* Móviles muy pequeños (360px o menos) */
+@media (max-width: 360px) {
+  .about-title {
+    font-size: 1.4rem;
+  }
+
+  .about-description {
+    font-size: 0.875rem;
+  }
+
+  .content-text {
+    font-size: 0.85rem;
+  }
+
+  .mobile-alternative {
+    font-size: 0.8rem;
   }
 }

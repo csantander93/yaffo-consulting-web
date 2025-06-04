@@ -260,29 +260,55 @@
     height: 96px;
     padding: 0.8rem;
     margin: 3px 0;
-    transform: scale(1.6);
+    transform: scale(1.6) !important;
     transform-origin: center;
     border-radius: 12px;
+    pointer-events: none;
   }
   
   .client-logo {
     max-width: 100%;
     max-height: 100%;
     opacity: 0.9;
+    pointer-events: none;
   }
   
   .client-item.has-white-bg {
-    transform: scale(1.6);
+    transform: scale(1.6) !important;
+  }
+  
+  /* Modificaciones específicas para additional-counter-item */
+  .additional-counter-item,
+  .additional-counter-item .client-item {
+    pointer-events: none;
   }
   
   .additional-counter-item .client-item {
-    width: 120px; /* Adjusted for mobile */
+    width: 120px;
     height: 80px;
   }
   
-  .international-client-logo {
-    max-width: 110px; /* Adjusted for mobile */
+  .additional-counter-item .international-client-logo {
+    max-width: 110px;
     max-height: 70px;
+    pointer-events: none;
+  }
+  
+  /* Desactivar cualquier efecto hover existente */
+  .client-item:hover,
+  .client-item:active,
+  .client-item:focus,
+  .additional-counter-item:hover,
+  .additional-counter-item:active,
+  .additional-counter-item:focus,
+  .additional-counter-item .client-item:hover,
+  .additional-counter-item .client-item:active,
+  .additional-counter-item .client-item:focus {
+    transform: scale(1.6) !important;
+    box-shadow: none !important;
+    filter: none !important;
+    opacity: 0.9 !important;
+    background: transparent !important;
   }
   
   @media (max-width: 480px) {
@@ -290,11 +316,11 @@
       width: calc(25% - 8px);
       height: 80px;
       padding: 0.6rem;
-      transform: scale(1.4);
+      transform: scale(1.4) !important;
     }
 
     .client-item.has-white-bg {
-      transform: scale(1.4);
+      transform: scale(1.4) !important;
     }
 
     .clients-static-row {
@@ -302,11 +328,11 @@
     }
     
     .additional-counter-item .client-item {
-      width: 100px; /* Further reduced for smaller screens */
+      width: 100px;
       height: 70px;
     }
     
-    .international-client-logo {
+    .additional-counter-item .international-client-logo {
       max-width: 90px;
       max-height: 60px;
     }
@@ -344,11 +370,13 @@
     min-width: 72px;
     margin: 1.6px 0;
     border-radius: 6.4px;
+    pointer-events: none;
   }
   
   .client-logo {
     max-width: 64px;
     max-height: 24px;
+    pointer-events: none;
   }
   
   .client-item.has-white-bg {
@@ -357,6 +385,16 @@
   
   .client-item.has-white-bg .client-logo {
     padding: 2px;
+  }
+  
+  /* Desactivar efectos hover en additional-counter-item para móvil pequeño */
+  .additional-counter-item:hover,
+  .additional-counter-item:active,
+  .additional-counter-item .client-item:hover,
+  .additional-counter-item .client-item:active {
+    transform: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
   }
   
   @media (max-width: 400px) {
@@ -373,6 +411,16 @@
     
     .client-logo {
       max-width: 56px;
+    }
+    
+    .additional-counter-item .client-item {
+      width: 80px;
+      height: 50px;
+    }
+    
+    .additional-counter-item .international-client-logo {
+      max-width: 75px;
+      max-height: 45px;
     }
   }
 }

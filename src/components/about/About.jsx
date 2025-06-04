@@ -187,10 +187,11 @@ const About = () => {
             </div>
             <p className="image-caption" ref={addToRefs}>Innovative technological solutions for <span itemProp="keywords">compliance management</span></p>
           </div>
-          <div className="about-content">
+          <div className="about-content about-approach">
             <h2 className="content-title" ref={addToRefs}>
               <span className="title-decoration">Our approach</span>
             </h2>
+            
             <ul className="services-list">
               {approachData.map((item, index) => (
                 <li 
