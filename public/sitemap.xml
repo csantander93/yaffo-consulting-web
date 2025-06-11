@@ -1,37 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://yaffoconsulting.com/</loc>
-    <lastmod>2025-05-22</lastmod>
+    <lastmod>2025-06-15</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>1.00</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://yaffoconsulting.com/"/>
-  </url>
-
-  <url>
-    <loc>https://yaffoconsulting.com/#home</loc>
-    <priority>0.90</priority>
-  </url>
-  <url>
-    <loc>https://yaffoconsulting.com/#about-us</loc>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://yaffoconsulting.com/#services</loc>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://yaffoconsulting.com/#solutions</loc>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://yaffoconsulting.com/#clients</loc>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://yaffoconsulting.com/#contact</loc>
-    <priority>0.90</priority>
+    <priority>1.0</priority>
   </url>
 </urlset>

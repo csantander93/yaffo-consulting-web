@@ -32,13 +32,7 @@ function App() {
   return (
     <>
 
-      <Seo
-        title="Yaffo Consulting"
-        description="Proactive protection of digital assets with comprehensive cybersecurity, risk management, and secure development solutions."
-        keywords="Cybersecurity, digital protection, IT consulting, YAFO, advanced security, pentesting, secure development, compliance"
-        image="https://yaffoconsulting.com/assets/logo-yaffo.webp"
-        url="https://yaffoconsulting.com"
-      />
+      <Seo />
       
       <Header />
 

@@ -1,8 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /private/
-Disallow: /tmp/
 
-# Sitemaps
-Sitemap: https://www.yaffo-consulting.com/sitemap.xml
-Sitemap: https://www.yaffo-consulting.com/sitemap-images.xml (si tienes imágenes importantes)
+Sitemap: https://yaffoconsulting.com/sitemap.xml
+Host: https://yaffoconsulting.com
